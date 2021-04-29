@@ -590,13 +590,18 @@ class AndroidBuilder(object):
         # get the path of keystore file
         while True:
             inputed = self._get_user_input(MultiLanguage.get_string('COMPILE_TIP_INPUT_KEYSTORE'))
-            inputed = inputed.strip()
+            #debug
+	    print(inputed) 
+	    inputed = inputed.strip()
+	    #debug
+	    print(inputed)
             if not os.path.isabs(inputed):
                 start_path = os.path.join(self.app_android_root, 'app')
                 abs_path = os.path.join(start_path, inputed)
             else:
                 abs_path = inputed
-
+	    #debug
+	    print(abs_path)
             if os.path.isfile(abs_path):
                 user_cfg[self.key_store_str] = inputed.replace('\\', '/')
                 break
